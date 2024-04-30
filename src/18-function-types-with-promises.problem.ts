@@ -6,9 +6,10 @@ interface User {
   lastName: string;
 }
 
+// use Promise syntax and function syntax
 const createThenGetUser = async (
-  createUser: unknown,
-  getUser: unknown,
+  createUser: () => Promise<string>,
+  getUser: (id: string) => Promise<User>
 ): Promise<User> => {
   const userId: string = await createUser();
 
@@ -24,7 +25,7 @@ it("Should create the user, then get them", async () => {
       id,
       firstName: "Matt",
       lastName: "Pocock",
-    }),
+    })
   );
 
   expect(user).toEqual({
