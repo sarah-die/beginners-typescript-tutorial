@@ -4,9 +4,13 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
   try {
     if (state === "fail") {
       throw new Error("Failure!");
+      // throw "Failure";
     }
   } catch (e) {
-    return e.message;
+    // checking at runtime what that type is
+    if (e instanceof Error) return e.message;
+    // in case someone wrote e custom message before
+    if (typeof e === "string") return e;
   }
 };
 
