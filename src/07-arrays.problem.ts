@@ -3,7 +3,9 @@ interface User {
   firstName: string;
   lastName: string;
   role: "admin" | "user" | "super-admin";
-  posts: Post;
+  // posts: Post[];
+  // solution 2: utility type
+  posts: Array<Post>;
 }
 
 interface Post {
