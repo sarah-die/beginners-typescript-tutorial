@@ -1,6 +1,7 @@
 import { expect, it } from "vitest";
 
-export const getName = (first: string, last: string) => {
+// optional args have to be placed after required args
+export const getName = (first: string, last?: string) => {
   if (last) {
     return `${first} ${last}`;
   }
