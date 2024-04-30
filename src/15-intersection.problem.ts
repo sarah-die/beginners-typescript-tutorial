@@ -14,7 +14,12 @@ interface Post {
  * How do we type this return statement so it's both
  * User AND { posts: Post[] }
  */
-export const getDefaultUserAndPosts = (): unknown => {
+
+// intersection types combine several types into one
+// note: interface inherits and does not combine
+type ReturnTypeUserAndPost = User & { posts: Post[] };
+
+export const getDefaultUserAndPosts = (): ReturnTypeUserAndPost => {
   return {
     id: "1",
     firstName: "Matt",
