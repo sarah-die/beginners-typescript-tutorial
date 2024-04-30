@@ -1,6 +1,8 @@
 import { expect, it } from "vitest";
 
-export const getName = (params: { first: string; last: string }) => {
+// optional object params allow passing undefined
+// alternative: last: string | undefined -> undefined actually has to be passed
+export const getName = (params: { first: string; last?: string }) => {
   if (params.last) {
     return `${params.first} ${params.last}`;
   }
