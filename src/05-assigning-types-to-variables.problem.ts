@@ -11,7 +11,20 @@ interface User {
  * How do we ensure that defaultUser is of type User
  * at THIS LINE - not further down in the code?
  */
-const defaultUser = {};
+// use this to get autocomplete
+const defaultUser: User = {
+  id: 1,
+  firstName: "name",
+  lastName: "last",
+  isAdmin: true,
+};
+
+const defaultUser2 = {
+  id: 1,
+  firstName: "name",
+  lastName: "last",
+  isAdmin: false,
+} satisfies User;
 
 const getUserId = (user: User) => {
   return user.id;
@@ -19,4 +32,5 @@ const getUserId = (user: User) => {
 
 it("Should get the user id", () => {
   expect(getUserId(defaultUser)).toEqual(1);
+  expect(getUserId(defaultUser2)).toEqual(1);
 });
