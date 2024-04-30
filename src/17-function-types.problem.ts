@@ -3,7 +3,13 @@ import { Equal, Expect } from "./helpers/type-utils";
 /**
  * How do we type onFocusChange?
  */
-const addListener = (onFocusChange: unknown) => {
+
+// (arguments) => returnType
+// void is typescript specific
+// note: use this when passing functions into something
+type FocusListener = (arg: boolean) => void;
+
+const addListener = (onFocusChange: FocusListener) => {
   window.addEventListener("focus", () => {
     onFocusChange(true);
   });
