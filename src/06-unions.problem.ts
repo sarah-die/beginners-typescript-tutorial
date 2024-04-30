@@ -8,8 +8,12 @@ interface User {
    * - 'user'
    * - 'super-admin'
    */
-  role: string;
+  // union type
+  // enables autocomplete
+  role: "admin" | "user" | SuperAdmin | { name: string };
 }
+
+type SuperAdmin = "super-admin";
 
 export const defaultUser: User = {
   id: 1,
