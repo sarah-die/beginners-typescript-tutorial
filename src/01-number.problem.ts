@@ -1,6 +1,8 @@
 import { expect, it } from "vitest";
 
-export const addTwoNumbers = (a, b) => {
+// add type annotations to functions arguments
+// always specify the types of each argument for every function you create
+export const addTwoNumbers = (a: number, b: number) => {
   return a + b;
 };
 
